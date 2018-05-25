@@ -1,0 +1,22 @@
+{
+  "name": "node-js-logger",
+  "version": "0.0.1",
+  "description": "Project to support attempt by Bristol dev teams to standardise logging in Node.js apps",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "airbrake-js": "^1.1.1",
+    "joi": "^13.3.0",
+    "winston": "^2.4.2"
+  },
+  "devDependencies": {
+    "dotenv": "^5.0.1"
+  }
+}
