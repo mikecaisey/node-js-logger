@@ -2,12 +2,13 @@
   "name": "node-js-logger",
   "version": "0.0.1",
   "description": "Project to support attempt by Bristol dev teams to standardise logging in Node.js apps",
-  "main": "index.js",
+  "main": "./lib/index.js",
   "directories": {
     "lib": "lib"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "./node_modules/lab/bin/lab -m 0 --coverage-path ./src/ --ignore version -r lcov -o lcov.info -r console -o stdout",
+    "lint": "./node_modules/.bin/eslint ./src/**/*.js --fix"
   },
   "author": "James Carmichael <james.carmichael@defra.gsi.gov.uk>",
   "license": "OGL",
@@ -17,6 +18,17 @@
     "winston": "^2.4.2"
   },
   "devDependencies": {
-    "dotenv": "^5.0.1"
+    "capture-console": "^1.0.1",
+    "code": "^5.2.0",
+    "dotenv": "^5.0.1",
+    "eslint-config-standard": "^11.0.0",
+    "eslint-plugin-import": "^2.12.0",
+    "eslint-plugin-node": "^6.0.1",
+    "eslint-plugin-promise": "^3.8.0",
+    "eslint-plugin-standard": "^3.1.0",
+    "good": "^8.1.1",
+    "good-winston": "^4.0.0",
+    "hapi": "^17.5.2",
+    "lab": "^15.4.5"
   }
 }

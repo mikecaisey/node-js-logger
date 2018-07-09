@@ -1,5 +1,46 @@
 Project to support attempt by Bristol dev teams to standardise logging in Node.js apps
 
+## Usage
+
+Setting up the logger:
+
+```
+const logger = require('node-js-logger');
+logger.init({
+  level: 'info',
+  airbrakeKey: process.env.errbit_key,
+  airbrakeHost: process.env.errbit_server,
+  airbrakeLevel: 'error'
+})
+```
+
+Integrating with HAPI17 using `good-winston`:
+
+```
+const Good = require('good');
+const GoodWinston = require('good-winston');
+const goodWinstonStream = new GoodWinston({ winston: logger });
+
+...
+
+const start = async() => {
+
+  ...
+
+  await server.register({
+    plugin: Good,
+    options: { ...config.good,
+      reporters: {
+        winston: [goodWinstonStream]
+      }
+    }
+  });
+
+  ...
+}
+
+```
+
 ## Contributing to this project
 
 Please read the [contribution guidelines](/CONTRIBUTING.md) before submitting a pull request.
@@ -7,7 +48,7 @@ Please read the [contribution guidelines](/CONTRIBUTING.md) before submitting a 
 ## Credits
 
 Original source for this work came from [Data Returns PI](https://github.com/DEFRA/data-returns-pi-frontend)
-Original implementation of Winston Airbake transport from [winston-airbrake](https://github.com/dstevensio/winston-airbrake) 
+Original implementation of Winston Airbake transport from [winston-airbrake](https://github.com/dstevensio/winston-airbrake)
 
 ## License
 
