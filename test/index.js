@@ -4,8 +4,8 @@ const Lab = require('lab');
 const lab = exports.lab = Lab.script();
 const Code = require('code');
 
-const logger = require('./test-logger');
-const server = require('./test-server');
+const logger = require('./index/server/test-logger');
+const server = require('./index/server/test-server');
 
 let logs = [];
 

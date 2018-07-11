@@ -1,4 +1,4 @@
-const logger = require('../lib/index.js');
+const logger = require('../../../lib/index.js');
 
 logger.init({
   level: 'info',
